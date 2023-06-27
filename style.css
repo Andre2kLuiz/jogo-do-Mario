@@ -17,7 +17,7 @@ overflow: hidden;
     position: absolute;
     bottom: 0;
     width: 70px;
-    animation: pipe-animation 2s infinite linear;
+    animation: pipe-animation 1.5s infinite linear;
 }
 
 .Yoshi {
