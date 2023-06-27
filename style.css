@@ -11,3 +11,9 @@ border: 1px solid black;
 margin: 0 auto;
 position: relative
 }
+
+.Pipe2 {
+    position: absolute;
+    bottom: 0;
+    width: 75px;
+}
