@@ -7,9 +7,9 @@ const jump = () => {
 
     setTimeout(() => {
 
-        Yoshi.classList.remove('jump');
+        // Yoshi.classList.remove('jump');
 
     }, 500);
 }
 
-document.body.addEventListener('keydown', jump);
+document.addEventListener('keydown', jump);
