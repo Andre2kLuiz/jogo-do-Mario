@@ -18,7 +18,7 @@ background: linear-gradient(rgb(87, 179, 222), #E0F6ff);
     position: absolute;
     bottom: 0;
     width: 70px;
-    animation: pipe-animation 1.5s infinite linear;
+    animation: pipe-animation 2ms infinite linear;
     
 }
 
