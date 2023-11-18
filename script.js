@@ -1,43 +1,76 @@
+let placar = document.querySelector(".placar")
+let score = 0 
+let gameOver = false
 
 document.addEventListener('DOMContentLoaded', () => {
-    const Yoshi = document.querySelector('.Yoshi');
 
-    const Pipe = document.querySelector('.Pipe');
-  
-    const jump = () => {
-      if (!Yoshi.classList.contains('jump')) {
-        Yoshi.classList.add('jump');
-        setTimeout(() => {
-          Yoshi.classList.remove('jump');
-        }, 500);
-      }
-    };
+  const music = new Audio
+  music.src = 'audio/stage.mp3'
+  music.play()
+
+  const Yoshi = document.querySelector('.Yoshi');
+
+  const Pipe = document.querySelector('.Pipe');
+
+  const jump = () => {
+    if (!Yoshi.classList.contains('jump') && loop) {
+      Yoshi.classList.add('jump');
+      setTimeout(() => {
+        Yoshi.classList.remove('jump');  
+      }, 500);
+    }
+    
+  };
 
     const loop = setInterval(() => {
 
-        const pipePosition = Pipe.offsetLeft;
+      const gameover = document.querySelector('.gameover')
 
-        const YoshiPosition = +window.getComputedStyle(Yoshi).bottom.replace('px', '');
+      const pipePosition = Pipe.offsetLeft;
 
-        if (pipePosition <= 110 && pipePosition > 0 && YoshiPosition < 95) {
+      const YoshiPosition = +window.getComputedStyle(Yoshi).bottom.replace('px', '');
 
-            Pipe.style.animation = 'none';
-            Pipe.style.left = `${pipePosition}px`;
+      if (pipePosition <= 110 && pipePosition > 0 && YoshiPosition < 100 ) {
 
-            Yoshi.style.animation = 'none';
-            Yoshi.style.bottom = `${YoshiPosition}px`;
+        const gamelost = new Audio
+        gamelost.src = 'audio/GameOver.mp3'
+        music.pause()
+        gamelost.play()
 
-            Yoshi.src ='./Image/DorklyYoshiIdleAnim.gif';
-            Yoshi.style.width = '95px';
+        Pipe.style.animation = 'none';
+        Pipe.style.left = `${pipePosition}px`;
 
-            clearInterval(loop);
-        }
+        Yoshi.style.animation = 'none';
+        Yoshi.style.bottom = `${YoshiPosition}px`;
+
+        Yoshi.src ='./Image/DorklyYoshiIdleAnim.gif';
+        Yoshi.style.width = '95px';
+
+        gameover.style.display = 'flex'
+
+        gameOver = true
+
+        clearInterval(loop);
+      }
 
     }, 10)
   
     document.addEventListener('keydown', (event) => {
       if (event.key === ' ' || event.key === 'Spacebar') {
         jump();
+        const pipePosition = Pipe.offsetLeft;
+        if(gameOver === false && pipePosition <= 300){
+          pontos(placar)
+        }
       }
     });
   });
+
+function pontos(placar){
+    score = score + 1
+    placar.innerHTML = `Placar: ${score}`
+}
+
+var btn = document.querySelector("#botao"); btn.addEventListener("click", function() { location.reload(); });  
+  
+  
