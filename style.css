@@ -23,6 +23,7 @@ body{
 p {
     color:green;
 }
+
 button{
     margin-top: 15px;
     height: 25px;
@@ -31,11 +32,13 @@ button{
     box-shadow: 1px 1px 3px black;
 }
 
+
+
 .gameover{
     background-color: green;
     color: orangered;
     text-shadow: 1px 1px 3px black;
-    height: 150px;
+    height: 170px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -43,6 +46,13 @@ button{
     font-size: 45px;
     margin-top: 150px;
     display: none;
+}
+
+#player{
+    margin-top: 10px;
+    height: 25px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.525);
 }
 
 .gaming-bord {

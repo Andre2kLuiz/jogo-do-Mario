@@ -1,4 +1,9 @@
 let placar = document.querySelector(".placar")
+let playerP = document.querySelector('#player').innerHTML
+
+//localStorage.setItem("player 1", playerP)
+//localStorage.setItem("pontos", placar)
+
 let score = 0 
 let gameOver = false
 
@@ -47,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
         Yoshi.style.width = '95px';
 
         gameover.style.display = 'flex'
-
         gameOver = true
+
+        
 
         clearInterval(loop);
       }
-
     }, 10)
   
     document.addEventListener('keydown', (event) => {
@@ -66,11 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-function pontos(placar){
+function pontos(/*placar*/){
     score = score + 1
-    placar.innerHTML = `Placar: ${score}`
+    document.querySelector(".placar").innerHTML = `Placar: ${score}`
+    //placar.innerHTML = `Placar: ${score}`
 }
 
-var btn = document.querySelector("#botao"); btn.addEventListener("click", function() { location.reload(); });  
+var btn = document.querySelector("#botao"); btn.addEventListener("click", function() { 
+  location.reload(); 
+});  
   
   
