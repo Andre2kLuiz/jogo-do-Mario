@@ -1,9 +1,4 @@
 let placar = document.querySelector(".placar")
-let playerP = document.querySelector('#player').innerHTML
-
-//localStorage.setItem("player 1", playerP)
-//localStorage.setItem("pontos", placar)
-
 let score = 0 
 let gameOver = false
 
@@ -52,12 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
         Yoshi.style.width = '95px';
 
         gameover.style.display = 'flex'
-        gameOver = true
-
-        
+        gameOver = true 
 
         clearInterval(loop);
+        
       }
+      
     }, 10)
   
     document.addEventListener('keydown', (event) => {
@@ -77,7 +72,8 @@ function pontos(/*placar*/){
     //placar.innerHTML = `Placar: ${score}`
 }
 
-var btn = document.querySelector("#botao"); btn.addEventListener("click", function() { 
+var btn = document.querySelector("#botao"); 
+btn.addEventListener("click", function() { 
   location.reload(); 
 });  
   
